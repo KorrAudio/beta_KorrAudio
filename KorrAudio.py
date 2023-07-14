@@ -7,6 +7,7 @@ import soundfile as sf
 import numpy as np
 import PySimpleGUI as sg
 import matplotlib.pyplot as plt
+from tinytag import TinyTag
 
 # Constants
 SUPPORTED_FORMATS = ["mp3", "wav", "ogg", "flac", "aiff"]
@@ -44,19 +45,44 @@ def analyze_audio(file_path):
     min_frequency = 0
     max_frequency = sample_rate / 2
 
+    # Extract metadata
+    audio_file = TinyTag.get(file_path)
+    artist = audio_file.artist if audio_file.artist else "Unknown"
+    title = audio_file.title if audio_file.title else "Unknown"
+    album = audio_file.album if audio_file.album else "Unknown"
+    year = audio_file.year if audio_file.year else "Unknown"
+    genre = audio_file.genre if audio_file.genre else "Unknown"
+
+    # Calculate the tempo
+    tempo, beat_frames = librosa.beat.beat_track(audio, sample_rate)
+
     # Create the analysis results text
-    results = f"File Name: {os.path.basename(file_path)}\n" \
-              f"Audio File Format: {file_format}\n" \
-              f"File Duration: {duration:.2f} seconds\n" \
-              f"Last Modified: {modification_time}\n" \
-              f"File Hash: {file_hash}\n" \
-              f"Sample Rate: {bitrate}\n" \
-              f"Sampling Frequency: {sample_rate}\n" \
-              f"Number of Channels: {num_channels}\n" \
-              f"Maximum Amplitude: {max_amplitude:.2f}\n" \
-              f"Average Amplitude: {mean_amplitude:.2f}\n" \
-              f"Minimum Frequency: {min_frequency} Hz\n" \
-              f"Maximum Frequency: {max_frequency:.2f} Hz\n"
+    file_info_text1 = f"File Name: {os.path.basename(file_path)}\n" \
+                     f"Audio File Format: {file_format}\n" \
+                     f"Last Modified: {modification_time}\n" \
+                     f"File Hash: {file_hash}\n" \
+
+    file_info_text2 = f"\n" \
+                     f"File Duration: {duration:.2f} seconds\n" \
+                     f"Sample Rate: {bitrate}\n" \
+                     f"Sampling Frequency: {sample_rate}\n" \
+                     f"Number of Channels: {num_channels}\n" \
+                     f"Maximum Amplitude: {max_amplitude:.2f}\n" \
+                     f"Average Amplitude: {mean_amplitude:.2f}\n" \
+                     f"Minimum Frequency: {min_frequency} Hz\n" \
+                     f"Maximum Frequency: {max_frequency:.2f} Hz\n" \
+
+    tempo_text = f"\n" \
+                    f"Tempo: {tempo:.2f} BPM\n" \
+
+    metadata_text = f"\n" \
+                    f"Artist: {artist}\n" \
+                    f"Title: {title}\n" \
+                    f"Album: {album}\n" \
+                    f"Year: {year}\n" \
+                    f"Genre: {genre}\n"
+
+    results = file_info_text1 + file_info_text2 + tempo_text + metadata_text
 
     return results
 
@@ -116,14 +142,15 @@ def show_spectral_envelope(audio, sample_rate):
     plt.ylabel('Amplitude')
     plt.show()
 
-# Graphical User Interface
+# List of available plots
 plots = [
     ("Waveform", show_waveform),
     ("Spectrogram", show_spectrogram),
     ("Frequency Spectrum", show_frequency_spectrum),
-    ("Spectral Envelope", show_spectral_envelope)
+    ("Spectral Envelope", show_spectral_envelope),
 ]
 
+# GUI code
 layout = [
     [
         sg.TabGroup([
