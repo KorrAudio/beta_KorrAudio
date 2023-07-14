@@ -143,7 +143,7 @@ layout = [
                 ]),
                 sg.Tab('Help', [
                     [sg.Text("KorrAudio - @Copyleft all wrongs reserved")],
-                    [sg.Text("https://github.com/AmauryBlanc/beta_KorrAudio")],
+                    [sg.Text("https://github.com/KorrAudio/beta_KorrAudio")],
                     [sg.Text("Version: Beta")],
                     [sg.Text("")],
                     [sg.Text("Supported Audio Formats:")],
