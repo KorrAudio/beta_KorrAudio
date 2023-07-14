@@ -12,7 +12,7 @@ pip install librosa soundfile numpy PySimpleGUI matplotlib
 ```
 2. Download and run the file KorrAudio.py
 ```
-python3 soundjudge.py
+python3 KorrAudio.py
 ```
 Libraries Informations
 ---------------------
