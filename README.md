@@ -1,4 +1,4 @@
-SoundJudge
+KorrAudio
 ======================
 Simple, lightweight program in Python for obtaining information about an audio file.
 
