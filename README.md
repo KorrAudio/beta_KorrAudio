@@ -25,4 +25,4 @@ matplotlib: This library is used to display audio graphics.
 ```
 Screenshot
 ---------------------
-![250124576-af447bbda658](https://github.com/KorrAudio/beta_KorrAudio/assets/139574456/36d72e5f-ebad-48ff-bde1-6cfd124b910c)
+![screenshot](https://github.com/KorrAudio/beta_KorrAudio/assets/139574456/d06f1fb9-50ae-4a60-9565-98e3cd4572f2)
