@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# This file is distributed under the terms of the GPLv3 license
+# For more information, refer to the LICENSE file or visit
+# http://www.gnu.org/licenses/gpl-3.0.html
+
 import datetime
 import hashlib
 import os
