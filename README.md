@@ -22,7 +22,7 @@ soundfile: This library is used to read and write audio files.
 numpy: This library is used to perform numerical calculations on audio data. 
 PySimpleGUI: This library is used to create the graphical interface. 
 matplotlib: This library is used to display audio graphics.
-tinytag: Tis library is used for reading music meta data 
+tinytag: This library is used for reading music meta data 
 ```
 Screenshot
 ---------------------
