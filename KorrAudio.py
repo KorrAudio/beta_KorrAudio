@@ -17,7 +17,6 @@ import soundfile as sf
 from tinytag import TinyTag
 from librosa.feature import chroma_stft
 
-# Constants
 SUPPORTED_FORMATS = ["mp3", "wav", "ogg", "flac", "aiff"]
 
 # Audio analysis functions
