@@ -15,17 +15,6 @@ pip install librosa soundfile numpy PySimpleGUI matplotlib tinytag
 python3 KorrAudio.py
 ```
 
-Libraries Informations
----------------------
-```
-librosa: This library is used for loading and analyzing audio files.
-soundfile: This library is used to read and write audio files. 
-numpy: This library is used to perform numerical calculations on audio data. 
-PySimpleGUI: This library is used to create the graphical interface. 
-matplotlib: This library is used to display audio graphics.
-tinytag: This library is used for reading music meta data 
-```
-
 Features
 ---------------------
 Audio analysis:
@@ -51,3 +40,15 @@ Graphical display:
 Screenshot
 ---------------------
 ![scr](https://github.com/KorrAudio/beta_KorrAudio/assets/139574456/a1a9fce7-2623-4780-bf52-400c5b2cd515)
+
+Libraries Informations
+---------------------
+```
+librosa: This library is used for loading and analyzing audio files.
+soundfile: This library is used to read and write audio files. 
+numpy: This library is used to perform numerical calculations on audio data. 
+PySimpleGUI: This library is used to create the graphical interface. 
+matplotlib: This library is used to display audio graphics.
+tinytag: This library is used for reading music meta data 
+```
+Note: The program assumes the availability of necessary dependencies such as librosa, matplotlib, numpy, PySimpleGUI, soundfile, and tinytag.
