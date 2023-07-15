@@ -54,7 +54,7 @@ def analyze_audio(file_path):
     genre = audio_file.genre if audio_file.genre else "Unknown"
 
     # Calculate the tempo
-    tempo, beat_frames = librosa.beat.beat_track(audio, sample_rate)
+    tempo, beat_frames = librosa.beat.beat_track(y=audio, sr=sample_rate)
 
     # Create the analysis results text
     file_info_text1 = f"File Name: {os.path.basename(file_path)}\n" \
