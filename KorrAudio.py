@@ -182,7 +182,7 @@ layout = [
     ]
 ]
 
-window = sg.Window("KorrAudio (Beta Version)", layout)
+window = sg.Window("KorrAudio", layout)
 
 while True:
     event, values = window.read()
