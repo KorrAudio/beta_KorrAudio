@@ -47,12 +47,12 @@ def analyze_audio(file_path):
 
     # Extract metadata
     audio_file = TinyTag.get(file_path)
-    artist = audio_file.artist if audio_file.artist else "Unknown"
-    title = audio_file.title if audio_file.title else "Unknown"
-    album = audio_file.album if audio_file.album else "Unknown"
-    year = audio_file.year if audio_file.year else "Unknown"
-    genre = audio_file.genre if audio_file.genre else "Unknown"
-
+    artist = audio_file.artist or "Unknown"
+    title = audio_file.title or "Unknown"
+    album = audio_file.album or "Unknown"
+    year = audio_file.year or "Unknown"
+    genre = audio_file.genre or "Unknown"
+    
     # Calculate the tempo
     tempo, beat_frames = librosa.beat.beat_track(y=audio, sr=sample_rate)
 
