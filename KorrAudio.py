@@ -61,13 +61,24 @@ def analyze_audio(file_path):
     chroma = chroma_stft(y=audio, sr=sample_rate)
     mean_chroma = np.mean(chroma, axis=1)
 
+    # Calculate average loudness
+    loudness = librosa.amplitude_to_db(audio)
+    average_loudness = np.mean(loudness)
+
     # Create the analysis results text
-    file_info_text1 = f"File Name: {os.path.basename(file_path)}\n" \
+    file_info_text = f"File Name: {os.path.basename(file_path)}\n" \
                      f"Audio File Format: {file_format}\n" \
                      f"Last Modified: {modification_time}\n" \
                      f"File Hash: {file_hash}\n"
+    
+    metadata_text = f"\n" \
+                    f"Artist: {artist}\n" \
+                    f"Title: {title}\n" \
+                    f"Album: {album}\n" \
+                    f"Year: {year}\n" \
+                    f"Genre: {genre}\n"
 
-    file_info_text2 = f"\n" \
+    file_analyze_text = f"\n" \
                      f"File Duration: {duration:.2f} seconds\n" \
                      f"Sample Rate: {bitrate} Hz\n" \
                      f"Sampling Frequency: {sample_rate} Hz\n" \
@@ -77,21 +88,16 @@ def analyze_audio(file_path):
                      f"Minimum Frequency: {min_frequency} Hz\n" \
                      f"Maximum Frequency: {max_frequency:.2f} Hz\n"
 
-    tempo_text = f"Tempo: {tempo:.2f} BPM\n"
+    tempo_text = f"\n" \
+                f"Tempo: {tempo:.2f} BPM\n"
+
+    loudness_text = f"Average Loudness: {average_loudness:.2f} dB\n"
                     
     chroma_text = f"\nChroma Features:\n"
     for note, value in zip(["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"], mean_chroma):
         chroma_text += f"{note}: {value:.3f}\n"
 
-    metadata_text = f"\n" \
-                    f"Artist: {artist}\n" \
-                    f"Title: {title}\n" \
-                    f"Album: {album}\n" \
-                    f"Year: {year}\n" \
-                    f"Genre: {genre}\n"
-
-    results = file_info_text1 + metadata_text + file_info_text2 + tempo_text + chroma_text
-
+    results = file_info_text + metadata_text + file_analyze_text + tempo_text + loudness_text + chroma_text
     return results
 
 def calculate_file_hash(file_path):
@@ -214,5 +220,5 @@ while True:
             if os.path.isfile(file_path):
                 audio, sample_rate = librosa.load(file_path)
                 plot_func(audio, sample_rate)
-if __name__ == "__main__":
-    window.close()
+
+window.close()
