@@ -61,14 +61,14 @@ def analyze_audio(file_path):
                      f"Audio File Format: {file_format}\n" \
                      f"Last Modified: {modification_time}\n" \
                      f"File Hash: {file_hash}\n" \
-
+    
     file_info_text2 = f"\n" \
                      f"File Duration: {duration:.2f} seconds\n" \
-                     f"Sample Rate: {bitrate}\n" \
-                     f"Sampling Frequency: {sample_rate}\n" \
+                     f"Sample Rate: {bitrate} Hz\n" \
+                     f"Sampling Frequency: {sample_rate} Hz\n" \
                      f"Number of Channels: {num_channels}\n" \
-                     f"Maximum Amplitude: {max_amplitude:.2f}\n" \
-                     f"Average Amplitude: {mean_amplitude:.2f}\n" \
+                     f"Maximum Amplitude: {max_amplitude:.2f} (scaled value)\n" \
+                     f"Average Amplitude: {mean_amplitude:.2f} (scaled value)\n" \
                      f"Minimum Frequency: {min_frequency} Hz\n" \
                      f"Maximum Frequency: {max_frequency:.2f} Hz\n" \
 
