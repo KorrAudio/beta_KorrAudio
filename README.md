@@ -14,6 +14,7 @@ pip install librosa soundfile numpy PySimpleGUI matplotlib tinytag
 ```
 python3 KorrAudio.py
 ```
+
 Libraries Informations
 ---------------------
 ```
@@ -24,6 +25,29 @@ PySimpleGUI: This library is used to create the graphical interface.
 matplotlib: This library is used to display audio graphics.
 tinytag: This library is used for reading music meta data 
 ```
+
+Features
+---------------------
+Audio analysis:
+```
+    File information:
+    Name, Format, Last Modified, File Hash
+    
+    Metadata:
+    Artist, Title, Album, Year, Genre
+
+    Audio analysis:
+    File Duration, Sample Rate, Sampling Frequency, Number of Channels, Maximum Amplitude, 
+    Average Amplitude, Minimum Frequency, Maximum Frequency, Tempo, Average Loudness, Chroma
+```
+Graphical display:
+```
+    Waveform
+    Spectrogram
+    Frequency Spectrum
+    Spectral Envelope
+```
+
 Screenshot
 ---------------------
 ![scr](https://github.com/KorrAudio/beta_KorrAudio/assets/139574456/a1a9fce7-2623-4780-bf52-400c5b2cd515)
