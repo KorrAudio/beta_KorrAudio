@@ -194,7 +194,7 @@ layout = [
                     [sg.Text(", ".join(SUPPORTED_FORMATS))],
                     [sg.Text("")],
                     [sg.Text("")],
-                    [sg.Text("@Copyleft all wrongs reserved")],
+                    [sg.Text("KorrAudio - GPLv3 license")],
                     [sg.Text("https://github.com/KorrAudio/beta_KorrAudio")],
                 ])
             ]
