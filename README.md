@@ -52,3 +52,5 @@ matplotlib: This library is used to display audio graphics.
 tinytag: This library is used for reading music meta data 
 ```
 Note: The program assumes the availability of necessary dependencies such as librosa, matplotlib, numpy, PySimpleGUI, soundfile, and tinytag.
+
+KorrAudio - GPLv3 license
