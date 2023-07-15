@@ -29,12 +29,16 @@ Audio analysis:
     File Duration, Sample Rate, Sampling Frequency, Number of Channels, Maximum Amplitude, 
     Average Amplitude, Minimum Frequency, Maximum Frequency, Tempo, Average Loudness, Chroma
 ```
-Graphical display:
+Graphic displays:
 ```
     Waveform
     Spectrogram
     Frequency Spectrum
     Spectral Envelope
+```
+Supported formats:
+```
+MP3, WAV, OGG, FLAC, AIFF
 ```
 
 Screenshot
