@@ -169,13 +169,12 @@ layout = [
                     [sg.Button(plot_title) for plot_title, _ in plots]
                 ]),
                 sg.Tab('Help', [
-                    [sg.Text("KorrAudio - @Copyleft all wrongs reserved")],
-                    [sg.Text("https://github.com/KorrAudio/beta_KorrAudio")],
-                    [sg.Text("Version: Beta")],
-                    [sg.Text("")],
                     [sg.Text("Supported Audio Formats:")],
                     [sg.Text(", ".join(SUPPORTED_FORMATS))],
                     [sg.Text("")],
+                    [sg.Text("")],
+                    [sg.Text("@Copyleft all wrongs reserved")],
+                    [sg.Text("https://github.com/KorrAudio/beta_KorrAudio")],
                 ])
             ]
         ])
