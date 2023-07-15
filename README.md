@@ -26,4 +26,4 @@ tinytag: Tis library is used for reading music meta data
 ```
 Screenshot
 ---------------------
-![screenshot](https://github.com/KorrAudio/beta_KorrAudio/assets/139574456/d06f1fb9-50ae-4a60-9565-98e3cd4572f2)
+![scr](https://github.com/KorrAudio/beta_KorrAudio/assets/139574456/a1a9fce7-2623-4780-bf52-400c5b2cd515)
