@@ -169,7 +169,6 @@ layout = [
                     [sg.Button(plot_title) for plot_title, _ in plots]
                 ]),
                 sg.Tab('Help', [
-                    [sg.Text("")],
                     [sg.Text("Supported Audio Formats:")],
                     [sg.Text(", ".join(SUPPORTED_FORMATS))],
                     [sg.Text("")],
