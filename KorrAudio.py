@@ -1,13 +1,14 @@
-import os
-import hashlib
 import datetime
+import hashlib
+import os
 
 import librosa
-import soundfile as sf
+import matplotlib.pyplot as plt
 import numpy as np
 import PySimpleGUI as sg
-import matplotlib.pyplot as plt
+import soundfile as sf
 from tinytag import TinyTag
+from librosa.feature import chroma_stft
 
 # Constants
 SUPPORTED_FORMATS = ["mp3", "wav", "ogg", "flac", "aiff"]
@@ -52,16 +53,20 @@ def analyze_audio(file_path):
     album = audio_file.album or "Unknown"
     year = audio_file.year or "Unknown"
     genre = audio_file.genre or "Unknown"
-    
+
     # Calculate the tempo
     tempo, beat_frames = librosa.beat.beat_track(y=audio, sr=sample_rate)
+
+    # Calculate Chroma Features
+    chroma = chroma_stft(y=audio, sr=sample_rate)
+    mean_chroma = np.mean(chroma, axis=1)
 
     # Create the analysis results text
     file_info_text1 = f"File Name: {os.path.basename(file_path)}\n" \
                      f"Audio File Format: {file_format}\n" \
                      f"Last Modified: {modification_time}\n" \
-                     f"File Hash: {file_hash}\n" \
-    
+                     f"File Hash: {file_hash}\n"
+
     file_info_text2 = f"\n" \
                      f"File Duration: {duration:.2f} seconds\n" \
                      f"Sample Rate: {bitrate} Hz\n" \
@@ -70,10 +75,13 @@ def analyze_audio(file_path):
                      f"Maximum Amplitude: {max_amplitude:.2f} (scaled value)\n" \
                      f"Average Amplitude: {mean_amplitude:.2f} (scaled value)\n" \
                      f"Minimum Frequency: {min_frequency} Hz\n" \
-                     f"Maximum Frequency: {max_frequency:.2f} Hz\n" \
+                     f"Maximum Frequency: {max_frequency:.2f} Hz\n"
 
-    tempo_text = f"\n" \
-                    f"Tempo: {tempo:.2f} BPM\n" \
+    tempo_text = f"Tempo: {tempo:.2f} BPM\n"
+                    
+    chroma_text = f"\nChroma Features:\n"
+    for note, value in zip(["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"], mean_chroma):
+        chroma_text += f"{note}: {value:.3f}\n"
 
     metadata_text = f"\n" \
                     f"Artist: {artist}\n" \
@@ -82,7 +90,7 @@ def analyze_audio(file_path):
                     f"Year: {year}\n" \
                     f"Genre: {genre}\n"
 
-    results = file_info_text1 + file_info_text2 + tempo_text + metadata_text
+    results = file_info_text1 + metadata_text + file_info_text2 + tempo_text + chroma_text
 
     return results
 
@@ -206,5 +214,5 @@ while True:
             if os.path.isfile(file_path):
                 audio, sample_rate = librosa.load(file_path)
                 plot_func(audio, sample_rate)
-
-window.close()
+if __name__ == "__main__":
+    window.close()
