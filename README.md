@@ -14,6 +14,7 @@ pip install librosa soundfile numpy PySimpleGUI matplotlib tinytag
 ```
 python3 KorrAudio.py
 ```
+<p align="center"><sup>* Supported OS: Windows, GNU/Linux, macOS</sup></p>
 
 Features
 ---------------------
@@ -36,7 +37,7 @@ Graphic displays:
     Frequency Spectrum
     Spectral Envelope
 ```
-Supported formats:
+Supported formats: 
 ```
 MP3, WAV, OGG, FLAC, AIFF
 ```
