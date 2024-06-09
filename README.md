@@ -8,7 +8,7 @@ There are two steps to running the program:
 
 1. Install the necessary libraries
 ```
-pip install librosa soundfile numpy PySimpleGUI matplotlib tinytag
+pip install librosa soundfile numpy Tkinter matplotlib tinytag
 ```
 2. Download and run the file KorrAudio.py
 ```
@@ -52,7 +52,7 @@ Libraries Informations
 librosa: This library is used for loading and analyzing audio files.
 soundfile: This library is used to read and write audio files. 
 numpy: This library is used to perform numerical calculations on audio data. 
-PySimpleGUI: This library is used to create the graphical interface. 
+Tkinter: This library is used to create the graphical interface. 
 matplotlib: This library is used to display audio graphics.
 tinytag: This library is used for reading music meta data 
 ```
