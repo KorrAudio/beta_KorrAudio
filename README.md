@@ -56,5 +56,5 @@ Tkinter: This library is used to create the graphical interface.
 matplotlib: This library is used to display audio graphics.
 tinytag: This library is used for reading music meta data 
 ```
-<p align="center"><sup>* The program assumes the availability of necessary dependencies such as librosa, matplotlib, numpy, PySimpleGUI, soundfile, and tinytag.</sup></p>
+<p align="center"><sup>* The program assumes the availability of necessary dependencies such as librosa, matplotlib, numpy, Tkinter, soundfile, and tinytag.</sup></p>
 <p align="center">KorrAudio - GPLv3 license</p>
